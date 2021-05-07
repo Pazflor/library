@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 var cors = require('cors');
+var bodyParser = require('body-parser');
 
 // routes
 const books = require('./routes/api/books');
@@ -20,6 +21,8 @@ app.get('/', (req, res) => res.send('Hello world!'));
 
 // use Routes
 app.use('/api/books', books);
+
+app.use(bodyParser.json())
 
 const port = process.env.PORT || 8082;
 
