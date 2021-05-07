@@ -26,25 +26,25 @@ router.get('/:id', (req, res) => {
         .catch(err => res.status(404).json({ nobookfound: 'No book found' }))
 });
 
-// @route GET api/books
+// @route POST api/books
 // @description Add/save book
 // @access Public
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     Book.create(req.body)
         .then(book => res.json({ msg: 'Book added' }))
         .catch(err => res.status(400).json({ error: 'Unable to add book' }))
 })
 
-// @route GET api/books/:id
+// @route PUT api/books/:id
 // @description Update book by id
 // @access Public
-router.get('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     Book.findByIdAndUpdate(req.params.id, req.body)
         .then(book => res.json({ msg: 'Updated successfullt' }))
         .catch(err => res.status(400).json({ error: 'Unable to update database' }))
 })
 
-// @route GET api/books/:id
+// @route DELETE api/books/:id
 // @description Delete book by id
 // @access Public
 router.delete('/:id', (req, res) => {
