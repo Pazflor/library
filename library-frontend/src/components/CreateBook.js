@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 
@@ -12,8 +12,6 @@ const CreateBook = () => {
         published_date: '',
         publisher: ''
     });
-
-    const navigate = useHistory();
 
     const onChange = (e) => {
         setBook({ [e.target.name]: e.target.value })
@@ -42,7 +40,6 @@ const CreateBook = () => {
                 published_date: '',
                 publisher: '' 
             })
-            navigate.push('/');
         })
         .catch(err => {
             console.log("Error in CreateBook!");
