@@ -1,4 +1,4 @@
 {
     "mongoURI":
-        "mongodb+srv://root:root@library.sihtz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        "mongodb+srv://root:root@library.sihtz.mongodb.net/library?retryWrites=true&w=majority"
 }

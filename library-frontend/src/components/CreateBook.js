@@ -14,7 +14,7 @@ const CreateBook = () => {
     });
 
     const onChange = (e) => {
-        setBook({ [e.target.name]: e.target.value })
+        setBook({ ...book, [e.target.name]: e.target.value })
     }
 
     const onSubmit = (e) => {
@@ -29,6 +29,7 @@ const CreateBook = () => {
             publisher: book.publisher
         }
 
+        console.log(book);
         axios
         .post('http://localhost:8082/api/books', data)
         .then(res => {
@@ -44,6 +45,7 @@ const CreateBook = () => {
         .catch(err => {
             console.log("Error in CreateBook!");
         })
+        console.log(data);
     }
 
     return (

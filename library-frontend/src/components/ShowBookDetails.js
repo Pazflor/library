@@ -13,6 +13,15 @@ const ShowBookDetails = (props) => {
         .catch(err => console.log('Error in ShowBookDetails'));
     }, [props.match.params.id]);
 
+    const deleteClick = () => {
+      axios
+        .delete('http://localhost:8082/api/books/' + book._id)
+        .then(res => {
+          props.history.push("/");
+        })
+        .catch(err => console.log("Error in ShowBookDetails_deleteClick"))
+    }
+
     let BookItem =
     <div>
         <table className="table table-hover table-dark">
@@ -84,7 +93,9 @@ const ShowBookDetails = (props) => {
 
           <div className="row">
             <div className="col-md-6">
-              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,book._id)}>Delete Book</button><br />
+              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={deleteClick}>
+                Delete Book
+              </button><br />
             </div>
 
             <div className="col-md-6">
@@ -95,9 +106,6 @@ const ShowBookDetails = (props) => {
             </div>
 
           </div>
-            {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Book</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Book</button> */}
         </div>
       </div>
     )
